@@ -2,7 +2,8 @@ package cn.com.study.pool2.socket.clients.socket;
 
 import java.net.Socket;
 
-import cn.com.study.pool2.ftp.clients.util.Pool;
+import cn.com.study.pool2.socket.clients.util.Pool;
+
 
 public class SocketPool extends Pool<Socket> {
 

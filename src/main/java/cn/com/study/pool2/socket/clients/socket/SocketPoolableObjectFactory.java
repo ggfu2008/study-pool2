@@ -25,18 +25,6 @@ public class SocketPoolableObjectFactory extends
 
 	@Override
 	public Socket create() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public PooledObject<Socket> wrap(Socket socket) {
-		// TODO Auto-generated method stub
-		return new DefaultPooledObject<Socket>(socket);
-	}
-
-	@Override
-	public PooledObject<Socket> makeObject() throws Exception {
 		Socket socket = new Socket();
 
         socket.setReuseAddress(config.isReuseAddress());
@@ -50,8 +38,19 @@ public class SocketPoolableObjectFactory extends
         socket.connect(new InetSocketAddress(config.getHost(), config.getPort()), config.getConnectTimeout());
         
         socket.setSoTimeout(config.getSoTimeout());
-		
-		return wrap(socket);
+        
+		return socket;
+	}
+
+	@Override
+	public PooledObject<Socket> wrap(Socket socket) {
+		// TODO Auto-generated method stub
+		return new DefaultPooledObject<Socket>(socket);
+	}
+
+	@Override
+	public PooledObject<Socket> makeObject() throws Exception {
+		return wrap(create());
 	}
 
 	@Override
