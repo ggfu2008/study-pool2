@@ -14,12 +14,12 @@ import org.apache.commons.pool2.impl.DefaultPooledObject;
  * @author Yangyf
  *
  */
-public class SocketPoolableObjectFactory extends
+public class SocketFactory extends
 		BasePooledObjectFactory<Socket> {
 
 	private final SocketClientConfig config;
 	
-	public SocketPoolableObjectFactory(SocketClientConfig config) {
+	public SocketFactory(SocketClientConfig config) {
 		this.config = config;
 	}
 

@@ -9,7 +9,7 @@ public class SocketPool extends Pool<Socket> {
 
 	public SocketPool(SocketPoolConfig socketPoolConfig,
 			SocketClientConfig socketClientConfig) {
-		super(socketPoolConfig, new SocketPoolableObjectFactory(socketClientConfig));
+		super(socketPoolConfig, new SocketFactory(socketClientConfig));
 		super.addObject(socketPoolConfig.getInitialSize());
 	}
 
