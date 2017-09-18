@@ -8,7 +8,7 @@ public class FTPPool extends Pool<FTPClient> {
 
 	public FTPPool(FTPPoolConfig ftpPoolConfig,
 			FTPClientConfigure ftpClientConfig) {
-		super(ftpPoolConfig, new FTPPoolableObjectFactory(ftpClientConfig));
+		super(ftpPoolConfig, new FTPFactory(ftpClientConfig));
 		super.addObject(ftpPoolConfig.getInitialSize());
 	}
 
